@@ -50,6 +50,7 @@
 	<!-- Material Kit CSS -->
 	<link href="https://nanondiary.com/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
 	<link href="https://nanondiary.com/assets/css/style.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body class="dark-edition">
@@ -3450,6 +3451,8 @@
 	<!-- Datatable for Table sorting -->
 	<script src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
 	<script src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/date-uk.js"></script>
+	<script src="https://cdn.datatables.net/fixedheader/3.1.7/js/fixedHeader.bootstrap4.min.js	"></script>
+	<script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.js"></script>
 	<script>
 		$('#year').append(new Date().getFullYear())
 	</script>
@@ -3458,9 +3461,14 @@
 			$('.table-responsive table').dataTable({
 				language: {
 					search: "",
-					searchPlaceholder: ' Search...'
+					url: "Thai.json",
+					searchPlaceholder: ' ค้นหา...'
 				},
-				dom: 'Pft',
+				dom: '<"dom_wrapper fh-fixedHeader"Pf>t',
+				fixedHeader: {
+					header: true,
+					headerOffset: 57,
+				},
 				paging: false,
 				autoWidth: false,
 				aoColumnDefs: [{
@@ -3470,7 +3478,10 @@
 				{
 					type: 'date-uk',
 					aTargets: 'date'
-				}]
+				}],
+				initComplete: function () {
+					$('.card-header.card-header-primary, .dataTables_filter').addClass('sticky');
+				}
 			});
 		});
 	</script>
