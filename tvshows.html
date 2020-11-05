@@ -3537,7 +3537,10 @@
 					{
 						type: 'date-uk',
 						aTargets: 'date'
-					}]
+					}],
+					initComplete: function () {
+						$('.card-header.card-header-primary, .dataTables_filter').addClass('sticky');
+					}
 				});
 			}
 			else {
@@ -3560,10 +3563,7 @@
 					{
 						type: 'date-uk',
 						aTargets: 'date'
-					}],
-					initComplete: function () {
-						$('.card-header.card-header-primary, .dataTables_filter').addClass('sticky');
-					}
+					}]
 				});
 			}
 		});
