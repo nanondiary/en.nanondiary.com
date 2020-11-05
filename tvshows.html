@@ -3552,7 +3552,7 @@
 					dom: '<"dom_wrapper fh-fixedHeader"Pf>t',
 					fixedHeader: {
 						header: true,
-						headerOffset: 0,
+						headerOffset: -0,
 					},
 					paging: false,
 					autoWidth: false,
@@ -3563,7 +3563,10 @@
 					{
 						type: 'date-uk',
 						aTargets: 'date'
-					}]
+					}],
+					initComplete: function () {
+						$('.card-header.card-header-primary, .dataTables_filter').addClass('sticky');
+					}
 				});
 			}
 		});
