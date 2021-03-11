@@ -9,7 +9,7 @@
     "sLoadingRecords": "Loading...",
     "sProcessing": "Processing...",
     "sSearch": "",
-    "zeroRecords": "No matching records found",
+    "zeroRecords": "No matching results found",
     "oPaginate": {
         "sFirst": "First",
         "sPrevious": "Previous",
